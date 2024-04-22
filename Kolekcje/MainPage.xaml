@@ -1,0 +1,28 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kolekcje.MainPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Nagłówek strony -->
+            <Label Text="Collections" FontSize="Large" HorizontalOptions="Center" Margin="0,20,0,10"/>
+
+            <!-- Wyświetlanie kolekcji -->
+            <CollectionView x:Name="mycollectionView"
+                            ItemsSource="{Binding Collections}"
+                            SelectionMode="None"
+                            VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="10">
+                            <Button Text="{Binding Name}" Clicked="CollectionButton_Clicked"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Przycisk do dodawania nowej kolekcji -->
+            <Button Text="New Collection" Clicked="NewCollection_Clicked" HorizontalOptions="Center" Margin="0,20,0,0"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
